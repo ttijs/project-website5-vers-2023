@@ -1,0 +1,14 @@
+body {
+    background-color: green;
+}
+
+.overzichtsafbeelding {
+    width: 300px;
+}
+
+.detailafbeelding {
+    width: 500px;
+}
+.icoon {
+    width: 50px;
+}

@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    Details
+    <br>
+    <h1>{{ werk.id }}</h1>
+    <img src="{{ werk.icon.url }}" class="icoon"/>
+    <img src="{{ werk.image.url }}" class="detailafbeelding"/>
+    datum:{{ werk.pub_date_pretty }}<br>
+    {{ werk.body }}<br>
+    stemmen: {{ werk.votes_total }}<br>
+    door: {{ werk.hunter.username }}<br>
+{% endblock %}
+

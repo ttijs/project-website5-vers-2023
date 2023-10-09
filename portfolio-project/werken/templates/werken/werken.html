@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>werken</h1>
+
+    {% for werken in werken.all %}
+    <a href="/werken/{{ werken.id }}">
+    <div>
+        <img src="{{ werken.image.url }}" class="overzichtsafbeelding" />
+        <h2>{{ werken.title }}</h2>
+        <p>{{ werken.summary }}</p>
+        </div>
+    </a>
+    {% endfor %}
+{% endblock %}
