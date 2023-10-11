@@ -2,14 +2,34 @@
 
 {% block content %}
     <h1>werken</h1>
-
+    <div class="row">
     {% for werken in werken.all %}
-    <a href="/werken/{{ werken.id }}">
-    <div>
-        <img src="{{ werken.image.url }}" class="overzichtsafbeelding" />
-        <h2>{{ werken.title }}</h2>
-        <p>{{ werken.summary }}</p>
+        <!-- <a href="/werken/{{ werken.id }}">
+        <div>
+            {% if werken.image %}
+                <img src="{{ werken.image.url }}" class="overzichtsafbeelding" />
+            {% endif %}
+            <h2>{{ werken.title }}</h2>
+            <p>{{ werken.summary }}</p>
+            </div>
+        </a> -->
+        <div class="col-md-4 d-flex" >
+            <div class="card mb-2">
+                {% if werken.image %}
+                    <img src="{{ werken.image.url }}" class="overzichtsafbeelding" />
+                {% else %}
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ werken.title }}</h5>
+                    <p class="card-text">{{ werken.summary }}</p>
+                    <a href="/werken/{{ werken.id }}"
+                    class="btn btn-primary">
+                        Read More
+                    </a>
+                </div>
+            </div>
         </div>
-    </a>
     {% endfor %}
+    </div>
 {% endblock %}
