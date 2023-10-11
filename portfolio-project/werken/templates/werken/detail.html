@@ -3,8 +3,12 @@
     Details
     <br>
     <h1>{{ werk.id }}: {{ werk.title }}</h1>
-    <img src="{{ werk.icon.url }}"/><br>
-    <img src="{{ werk.image.url }}"/>
+    {% if werk.icon %}
+        <img src="{{ werk.icon.url }}"/><br>   
+    {% endif %}
+    {% if werk.image %}
+        <img src="{{ werk.image.url }}"/>
+    {% endif %}
     <div>Datum: {{ werk.pub_date_pretty }}</div>
     <p>{{ werk.body }}</p>
     <div>Door: {{ werk.hunter.username }}</p>

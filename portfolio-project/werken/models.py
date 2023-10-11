@@ -8,8 +8,8 @@ class Werken(models.Model):
     body = models.TextField()
     url = models.TextField()
     pub_date = models.DateTimeField()
-    image = models.ImageField(upload_to='media/images/', blank=True)
-    icon = models.ImageField(upload_to='media/icon/', blank=True)
+    image = models.ImageField(upload_to='media/images/', blank=True, null=True)
+    icon = models.ImageField(upload_to='media/icon/', blank=True, null=True)
     votes_total = models.IntegerField(default=1)
     hunter = models.ForeignKey(User, on_delete=models.CASCADE)
 

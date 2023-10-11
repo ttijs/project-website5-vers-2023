@@ -19,9 +19,9 @@ def create(request):
     if request.method == 'POST':
         if  request.POST['title'] and \
             request.POST['body'] and \
-            request.POST['url'] and \
             request.FILES['image'] and \
-            request.FILES['icon']:
+            request.FILES['icon'] and \
+            request.POST['url']:
             werk = Werken()
             werk.title = request.POST['title']
             werk.body = request.POST['body']
@@ -32,8 +32,12 @@ def create(request):
             else:
                 werk.url='http://' + request.POST['url']
 
-            werk.icon = request.FILES['icon']
-            werk.image = request.FILES['image']
+            # werk.icon = request.FILES['icon']
+            # werk.image = request.FILES['image']
+            # if request.FILES['image'] and request.FILES['image'] != '':
+            #     werk.image = request.FILES['image']
+            # if request.FILES['icon'] and request.FILES['icon'] != '':
+            #     werk.icon = request.FILES['icon']
             werk.pub_date = timezone.datetime.now()
             werk.hunter = request.user
             # if request.user.is_authenticated:
